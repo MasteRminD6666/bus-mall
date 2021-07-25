@@ -106,8 +106,14 @@ function voteHandling(event) {
             BusMall.allProducts[rightImageIndex].vote++;
             console.log(BusMall.allProducts[rightImageIndex]);
         }
+        else{
+            alert('click on the image')
+            userAttempts--;
+            attempt.innerHTML= `Vote Numbers is : ${userAttempts}`
+            
+        }
         BusMall.render()
- 
+        
         
     }else{
         attempt.innerHTML= 'You have 0 Attempts'
@@ -123,6 +129,7 @@ function voteHandling(event) {
         }
         
     }
+   
    
     
 }
