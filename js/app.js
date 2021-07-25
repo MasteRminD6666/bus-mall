@@ -96,17 +96,14 @@ function voteHandling(event) {
         if (event.target.id==='left-image') {
 
             BusMall.allProducts[leftImageIndex].vote++;
-           
             console.log(BusMall.allProducts[leftImageIndex]);
         }
         else if (event.target.id==='middle-image'){
             BusMall.allProducts[middleImageIndex].vote++;
-           
             console.log(BusMall.allProducts[middleImageIndex]);
         }
         else if (event.target.id==='right-image'){
             BusMall.allProducts[rightImageIndex].vote++;
-           
             console.log(BusMall.allProducts[rightImageIndex]);
         }
         BusMall.render()
