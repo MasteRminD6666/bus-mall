@@ -139,7 +139,7 @@ let buttonClick =  function() {
         
             let liElment = document.createElement('li');
             ulElment.appendChild(liElment);
-            liElment.textContent= `${BusMall.allProducts[i].name} has And ${BusMall.allProducts[i].vote} Votes And Has ${BusMall.allProducts[i].shown} Shown `
+            liElment.textContent= `${BusMall.allProducts[i].name} has  ${BusMall.allProducts[i].vote} Votes And Has ${BusMall.allProducts[i].shown} Shown `
             eneable= false;
         }
     }
