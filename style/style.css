@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; 
+    
+    
+}
+.button {
+    transition-duration: 0.4s;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 100px;
+    margin-left: 550px;
+  }
+  
+.button:hover {
+    background-color: greenyellow;   /* Green */
+    color: black;
+  }
+
+li{
+    color: whitesmoke;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 550px;
+}
+
+h1{
+    margin-left: 300px;
+   
+}
+/* from codepen  */
+.typewriter h1 {
+    
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden; 
+    border-right: .15em solid orange; 
+    white-space: nowrap; 
+    margin-left: 450px;
+    margin-top: 200px; 
+    letter-spacing: .15em; 
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 28% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    28% { border-color: orange }
+  }
+body{
+    background-color: #131313;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border: red solid;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+img:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+
+}
+.flex-container{
+    display: flex;
+   
+    
+}
+
+#prodctus{
+ display: flex;
+ justify-content: space-around;
+ flex-direction: row;
+ margin-top: 200px;
+}
+
+
+/* scrollbar from codepen */
+body::-webkit-scrollbar {
+    width: 12px;              
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: red ;        
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: red;    
+    border-radius: 20px;     
+    border: 3px solid black;  
+  }
