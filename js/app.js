@@ -25,13 +25,13 @@ function BusMall(name,src) {
 BusMall.allProducts = [] ;
 
 // instance 
-new BusMall('bag','/img/bag.jpg') ;
-new BusMall('banana','/img/banana.jpg') ;
-new BusMall('bathroom','/img/bathroom.jpg') ;
-new BusMall('boots','/img/boots.jpg') ;
-new BusMall('breakfast','/img/breakfast.jpg') ;
-new BusMall('bubblegum','/img/bubblegum.jpg') ;
-new BusMall('chair','/img/chair.jpg') ;
+new BusMall('bag','./img/bag.jpg') ;
+new BusMall('banana','./img/banana.jpg') ;
+new BusMall('bathroom','./img/bathroom.jpg') ;
+new BusMall('boots','./img/boots.jpg') ;
+new BusMall('breakfast','./img/breakfast.jpg') ;
+new BusMall('bubblegum','./img/bubblegum.jpg') ;
+new BusMall('chair','./img/chair.jpg') ;
 new BusMall('cthulhu','/img/cthulhu.jpg') ;
 new BusMall('dog-duck','/img/dog-duck.jpg') ;
 new BusMall('dragon','/img/dragon.jpg') ;
