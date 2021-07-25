@@ -54,9 +54,13 @@ function getRndIndex() {
 // render 
 
 BusMall.render= function() {
+   
     leftImageIndex= getRndIndex();
     middleImageIndex = getRndIndex();
     rightImageIndex= getRndIndex();
+    BusMall.allProducts[leftImageIndex].shown++;
+    BusMall.allProducts[middleImageIndex].shown++;
+    BusMall.allProducts[rightImageIndex].shown++;
     // console.log(BusMall.allProducts[4].sorcue);
     while (leftImageIndex===rightImageIndex || leftImageIndex === middleImageIndex || rightImageIndex === middleImageIndex) {
         rightImageIndex=getRndIndex();
@@ -92,17 +96,17 @@ function voteHandling(event) {
         if (event.target.id==='left-image') {
 
             BusMall.allProducts[leftImageIndex].vote++;
-            BusMall.allProducts[leftImageIndex].shown++;
+           
             console.log(BusMall.allProducts[leftImageIndex]);
         }
         else if (event.target.id==='middle-image'){
             BusMall.allProducts[middleImageIndex].vote++;
-            BusMall.allProducts[middleImageIndex].shown++;
+           
             console.log(BusMall.allProducts[middleImageIndex]);
         }
         else if (event.target.id==='right-image'){
             BusMall.allProducts[rightImageIndex].vote++;
-            BusMall.allProducts[rightImageIndex].shown++;
+           
             console.log(BusMall.allProducts[rightImageIndex]);
         }
         BusMall.render()
