@@ -53,6 +53,7 @@ function getRndIndex() {
 }
 
 // render
+let rpeatedImages = [];
 
 BusMall.render = function () {
   leftImageIndex = getRndIndex();
@@ -62,24 +63,22 @@ BusMall.render = function () {
   BusMall.allProducts[leftImageIndex].shown++;
   BusMall.allProducts[middleImageIndex].shown++;
   BusMall.allProducts[rightImageIndex].shown++;
-  const rpeatedImages = [leftImageIndex, middleImageIndex, rightImageIndex];
+
   // console.log(BusMall.allProducts[4].sorcue);
   while (
     leftImageIndex === rightImageIndex ||
     leftImageIndex === middleImageIndex ||
     rightImageIndex === middleImageIndex ||
+    rpeatedImages.includes(rightImageIndex) ||
     rpeatedImages.includes(middleImageIndex) ||
-    rpeatedImages.includes(middleImageIndex) ||
-    rpeatedImages.includes(middleImageIndex) 
-   
+    rpeatedImages.includes(leftImageIndex)
   ) {
-   
-    console.log('Yes its included ' , rpeatedImages);
     rightImageIndex = getRndIndex();
     middleImageIndex = getRndIndex();
     leftImageIndex = getRndIndex();
-   
   }
+  rpeatedImages = [leftImageIndex, middleImageIndex, rightImageIndex];
+  // this for storing array without Dublicate numbers
 
   console.log(leftImageIndex, middleImageIndex, rightImageIndex);
 
@@ -92,6 +91,7 @@ BusMall.render = function () {
   // console.log('this is middle',middleImageIndex)
   // console.log('this is right',rightImageIndex)
 };
+
 BusMall.render();
 let oneclick = true;
 
@@ -109,13 +109,10 @@ function voteHandling(event) {
   if (userAttempts < maxAttempts) {
     if (event.target.id === "left-image") {
       BusMall.allProducts[leftImageIndex].vote++;
-      console.log(BusMall.allProducts[leftImageIndex]);
     } else if (event.target.id === "middle-image") {
       BusMall.allProducts[middleImageIndex].vote++;
-      console.log(BusMall.allProducts[middleImageIndex]);
     } else if (event.target.id === "right-image") {
       BusMall.allProducts[rightImageIndex].vote++;
-      console.log(BusMall.allProducts[rightImageIndex]);
     } else {
       alert("click on the image");
       userAttempts--;
