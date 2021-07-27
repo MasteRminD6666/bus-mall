@@ -80,7 +80,7 @@ BusMall.render = function () {
   rpeatedImages = [leftImageIndex, middleImageIndex, rightImageIndex];
   // this for storing array without Dublicate numbers
 
-  console.log(leftImageIndex, middleImageIndex, rightImageIndex);
+
 
   // console.log(BusMall.allProducts);
   leftImageElement.src = BusMall.allProducts[leftImageIndex].sorcue;
@@ -129,13 +129,12 @@ function voteHandling(event) {
 
       try2 = false;
     }
-    showChart();
+    
     for (let i = 0; i < BusMall.allProducts.length; i++) {
       voteArr.push(BusMall.allProducts[i].vote);
       shownArr.push(BusMall.allProducts[i].shown);
     }
-    console.log(voteArr);
-    console.log(shownArr);
+    showChart();
   }
 }
 
@@ -224,4 +223,6 @@ function showChart() {
   };
 
   var myChart = new Chart(document.getElementById("myChart"), config);
+myChart.destroy();
+var myChart = new Chart(document.getElementById("myChart"), config);
 }
