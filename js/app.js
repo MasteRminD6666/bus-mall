@@ -6,7 +6,7 @@ let results = document.getElementById("results");
 let leftImageElement = document.getElementById("left-image");
 let middleImageElement = document.getElementById("middle-image");
 let rightImageElement = document.getElementById("right-image");
-let maxAttempts = 25;
+let maxAttempts = 3;
 let userAttempts = 0;
 let leftImageIndex;
 let middleImageIndex;
@@ -20,7 +20,7 @@ function BusMall(name, src) {
   this.sorcue = src;
   this.shown = 0;
   this.vote = 0;
-
+  
   BusMall.allProducts.push(this);
   namesArr.push(this.name);
 }
@@ -52,6 +52,36 @@ function getRndIndex() {
   return Math.floor(Math.random() * BusMall.allProducts.length);
 }
 
+
+function setStorage() {
+
+ let stringArr = JSON.stringify(BusMall.allProducts) ;
+ 
+  localStorage.setItem('All-prodcuts',stringArr)
+}
+
+function getStorage() {
+  let data =localStorage.getItem('All-prodcuts')
+  // console.log('this is rretrived',data);
+ let retrivedObject= JSON.parse(data)
+  // console.log('parsed',retrivedObject);
+ 
+  if (retrivedObject!=null  ) {
+    
+    BusMall.allProducts= retrivedObject;
+    
+  }
+  // BusMall.allProducts = retrivedObject
+  
+  // voteHandling();
+  
+}
+
+// for (let i = 0; i < retrivedObject.length; i++) {
+//   console.log(retrivedObject[i]);
+//   new BusMall(retrivedObject[i].name,retrivedObject[i].sorcue);
+  
+// }
 // render
 let rpeatedImages = [];
 
@@ -94,12 +124,24 @@ BusMall.render = function () {
 
 BusMall.render();
 let oneclick = true;
+let buttonClick = function () {
+  console.log(eneable);
 
-prodcutDiv.addEventListener("click", voteHandling);
-
-let eneable = true;
-let try2 = true;
+  button.className = "button";
+  button.innerHTML = "Click to see the results";
+  let ulElment = document.createElement("ul");
+  results.appendChild(ulElment);
+  if (eneable === true) {
+    for (let i = 0; i < BusMall.allProducts.length; i++) {
+      let liElment = document.createElement("li");
+      ulElment.appendChild(liElment);
+      liElment.textContent = `${BusMall.allProducts[i].name} has  ${BusMall.allProducts[i].vote} Votes And Has ${BusMall.allProducts[i].shown} Shown `;
+      eneable = false;
+    }
+  }
+};
 function voteHandling(event) {
+  
   userAttempts++;
   let attempt = document.getElementById("Tries");
   attempt.innerHTML = `Vote Number: ${userAttempts}`;
@@ -134,28 +176,25 @@ function voteHandling(event) {
       voteArr.push(BusMall.allProducts[i].vote);
       shownArr.push(BusMall.allProducts[i].shown);
     }
+    
     showChart();
+    setStorage();
+   
   }
 }
 
-let buttonClick = function () {
-  console.log(eneable);
 
-  button.className = "button";
-  button.innerHTML = "Click to see the results";
-  let ulElment = document.createElement("ul");
-  results.appendChild(ulElment);
-  if (eneable === true) {
-    for (let i = 0; i < BusMall.allProducts.length; i++) {
-      let liElment = document.createElement("li");
-      ulElment.appendChild(liElment);
-      liElment.textContent = `${BusMall.allProducts[i].name} has  ${BusMall.allProducts[i].vote} Votes And Has ${BusMall.allProducts[i].shown} Shown `;
-      eneable = false;
-    }
-  }
-};
-
+prodcutDiv.addEventListener("click", voteHandling);
 button.addEventListener("click", buttonClick);
+
+let eneable = true;
+let try2 = true;
+
+
+
+
+
+
 // chart.js
 function showChart() {
   const data = {
@@ -226,3 +265,4 @@ function showChart() {
 myChart.destroy();
 var myChart = new Chart(document.getElementById("myChart"), config);
 }
+getStorage();
